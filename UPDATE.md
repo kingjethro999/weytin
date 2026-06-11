@@ -80,7 +80,7 @@ used to fill this gap by fetching and reasoning over external market data.
   rather than hardcoded values
 
 **Integration approach:**
-- On product search, if historical price data is missing in Supabase, a Groq API call
+- On product search, if historical price data is missing in Database, a Groq API call
   is made to retrieve estimated market context
 - Results are used to inform validation ranges and displayed alongside live submitted prices
 - Groq responses are cached to avoid redundant API calls
@@ -92,7 +92,7 @@ used to fill this gap by fetching and reasoning over external market data.
 ```
 User searches for a product
         ↓
-Backend fetches supply, demand, and submitted prices from Supabase
+Backend fetches supply, demand, and submitted prices from Database
         ↓
 If historical price data is missing → Groq AI fetches market context from web
         ↓

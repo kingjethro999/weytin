@@ -6,12 +6,27 @@ import { logger } from '@/lib/utils/logger';
 export async function GET(req: NextRequest) {
   try {
     const limitParam = req.nextUrl.searchParams.get('limit');
-    const limit = limitParam ? Math.min(Math.max(Number(limitParam), 1), 50) : 20;
+    const stateParam = req.nextUrl.searchParams.get('state');
+    const queryParam = req.nextUrl.searchParams.get('q');
+
+    const limit = limitParam ? Math.min(Math.max(Number(limitParam), 1), 1000) : 20;
+
+    const where: any = {};
+    if (stateParam) {
+      where.state = { equals: stateParam, mode: 'insensitive' };
+    }
+    if (queryParam) {
+      where.name = { contains: queryParam, mode: 'insensitive' };
+    }
 
     const locations = await prisma.location.findMany({
-      orderBy: { name: 'asc' },
+      where,
+      orderBy: [
+        { state: 'asc' },
+        { name: 'asc' }
+      ],
       take: limit,
-      select: { id: true, name: true, state: true },
+      select: { id: true, name: true, state: true, lga: true },
     });
 
     return NextResponse.json(locations);

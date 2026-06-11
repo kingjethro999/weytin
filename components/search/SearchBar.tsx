@@ -35,7 +35,7 @@ export function SearchBar() {
     <div className="relative w-full max-w-3xl">
       <div className="relative group">
         <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-primary transition-colors">
-          <SearchIcon className="size-4" />
+          <SearchIcon className="size-4" aria-hidden="true" />
         </div>
         <Input
           type="text"
@@ -47,25 +47,28 @@ export function SearchBar() {
         {localQuery && (
           <button
             onClick={handleClear}
+            aria-label="Clear search query"
             className="absolute inset-y-0 right-3 flex items-center text-muted-foreground hover:text-foreground transition-colors"
           >
-            <X className="size-4" />
+            <X className="size-4" aria-hidden="true" />
           </button>
         )}
       </div>
       
       {trending.length > 0 && (
-        <div className="mt-2 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
-          <span className="text-[10px] font-data text-muted-foreground uppercase tracking-wider">Trending:</span>
-          {trending.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setLocalQuery(tag)}
-              className="px-2.5 py-1 text-[10px] rounded-full border border-border/60 bg-muted/60 hover:bg-secondary hover:text-secondary-foreground transition-colors"
-            >
-              {tag}
-            </button>
-          ))}
+        <div className="mt-2 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" style={{ scrollbarWidth: 'none' }}>
+          <span className="shrink-0 text-[10px] font-data text-muted-foreground uppercase tracking-wider whitespace-nowrap">TRENDING:</span>
+          <div className="flex items-center gap-1.5 flex-nowrap">
+            {trending.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setLocalQuery(tag)}
+                className="shrink-0 whitespace-nowrap px-2.5 py-1 text-[10px] rounded-full border border-border/60 bg-muted/60 hover:bg-secondary hover:text-secondary-foreground transition-colors font-medium"
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

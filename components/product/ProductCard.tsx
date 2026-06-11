@@ -26,6 +26,7 @@ export function ProductCard({
   const [trend, setTrend] = useState<'up' | 'down' | 'stable'>(initialTrend || 'stable');
   const [supplyLevel, setSupplyLevel] = useState<'high' | 'medium' | 'low'>(initialSupplyLevel || 'medium');
   const [reportCount, setReportCount] = useState(0);
+  const [isAiEstimated, setIsAiEstimated] = useState(false);
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
 
   useEffect(() => {
@@ -33,33 +34,25 @@ export function ProductCard({
 
     async function fetchMetrics() {
       try {
-        const response = await fetch(`/api/supply?productId=${product.id}`);
-        if (!response.ok) throw new Error('Failed to load supply entries');
+        const response = await fetch(`/api/prices?productId=${product.id}`);
+        if (!response.ok) throw new Error('Failed to load price stats');
         const data = await response.json();
 
-        if (data && data.length > 0) {
-          const prices = data.map((d: any) => Number(d.price));
-          const avgPrice = calculateAveragePrice(prices);
-          setPrice(avgPrice);
-          setReportCount(data.length);
-          setLastUpdated(data[0].submitted_at);
-
-          // Simple trend logic: compare latest to average
-          if (data.length > 1) {
-            const latest = Number(data[0].price);
-            if (latest > avgPrice * 1.05) setTrend('up');
-            else if (latest < avgPrice * 0.95) setTrend('down');
-            else setTrend('stable');
-          }
-
-          // Supply level logic from latest entry quantity value.
-          const latestQuantity = Number(data[0].quantity) || 0;
-          if (latestQuantity >= 100) setSupplyLevel('high');
-          else if (latestQuantity <= 20) setSupplyLevel('low');
+        if (data && data.stats) {
+          setPrice(data.stats.avg);
+          setReportCount(data.stats.entry_count);
+          setIsAiEstimated(data.stats.is_ai_estimate);
+          // If there are stats, use them to derive simple trend (we don't have time series here so default stable)
+          setTrend('stable');
+          
+          // Supply level logic from entry count (proxy for quantity if we don't fetch supply array)
+          // We don't have latest quantity here, so let's default to entry_count based for now
+          if (data.stats.entry_count >= 10) setSupplyLevel('high');
+          else if (data.stats.entry_count <= 2) setSupplyLevel('low');
           else setSupplyLevel('medium');
         }
       } catch (err) {
-        console.error('Failed to load product supply metrics:', err);
+        console.error('Failed to load product price metrics:', err);
       }
     }
 
@@ -88,7 +81,7 @@ export function ProductCard({
     <Link href={`/product/${product.id}`}>
       <Card className="group hover:border-primary/50 transition-all bg-card border-border/70 overflow-hidden shadow-sm">
         <CardContent className="p-5">
-          <div className="flex justify-between items-start mb-4">
+          <div className="flex justify-between items-start gap-4 mb-4">
             <div>
               <p className="text-[10px] font-data text-muted-foreground uppercase tracking-widest mb-1">
                 {product.category.name}
@@ -97,24 +90,30 @@ export function ProductCard({
                 {product.name}
               </h3>
             </div>
-            <Badge variant="outline" className={cn("font-mono text-[10px]", supplyColors[supplyLevel])}>
+            <Badge variant="outline" className={cn("font-mono text-[10px] shrink-0", supplyColors[supplyLevel])}>
               {supplyLevel.toUpperCase()} SUPPLY
             </Badge>
           </div>
 
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-[10px] font-data text-muted-foreground uppercase mb-1">Avg Price / {product.unit}</p>
+              <p className="text-[10px] font-data text-muted-foreground uppercase mb-1">
+                {isAiEstimated ? 'Est. Avg Price' : `Avg Price / ${product.unit}`}
+              </p>
               <div className="flex items-baseline gap-2">
                 <span className="text-2xl font-bold font-data">
                   {price > 0 ? `₦${price.toLocaleString()}` : '---'}
                 </span>
-                {price > 0 && (
+                {price > 0 && isAiEstimated ? (
+                  <Badge variant="outline" className="text-[9px] px-1.5 py-0 border-primary/30 text-primary/80 ml-1">
+                    AI EST
+                  </Badge>
+                ) : price > 0 ? (
                   <div className={cn("flex items-center text-[10px] font-medium", trendColor)}>
                     <TrendIcon className="size-3 mr-0.5" />
                     {trend === 'stable' ? '0%' : 'VAR'}
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
             

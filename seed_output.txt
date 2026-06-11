@@ -1,0 +1,10 @@
+
+> weytin@0.1.0 db:seed /home/king/Documents/weytin
+> ts-node --compiler-options '{"module":"CommonJS"}' prisma/seed.ts
+
+🌱 Seeding categories and products...
+✅ 13 categories upserted
+✅ Products: 172 created, 78 already existed
+🌍 Seeding Nigerian states and LGAs...
+✅ Locations: 0 created (all already existed)
+🎉 Seed complete!

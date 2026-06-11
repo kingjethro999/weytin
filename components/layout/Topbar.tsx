@@ -19,11 +19,12 @@ export function Topbar() {
           size="icon" 
           className="lg:hidden text-muted-foreground"
           onClick={() => setMobileNavOpen(true)}
+          aria-label="Open navigation menu"
         >
-          <Menu className="size-5" />
+          <Menu className="size-5" aria-hidden="true" />
         </Button>
         <div className="relative w-full hidden md:block">
-          <Search className="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
+          <Search className="absolute left-2.5 top-2.5 size-4 text-muted-foreground" aria-hidden="true" />
           <Input 
             placeholder="Search products or locations..." 
             className="pl-9 bg-card border-border/70 h-9"
@@ -33,13 +34,13 @@ export function Topbar() {
 
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hover:bg-muted">
-            <Bell className="size-4" />
+          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hover:bg-muted" aria-label="Notifications">
+            <Bell className="size-4" aria-hidden="true" />
           </Button>
           <div className="h-4 w-px bg-border mx-2" />
-          <Button variant="ghost" className="gap-2 px-2.5 hover:bg-muted">
+          <Button variant="ghost" className="gap-2 px-2.5 hover:bg-muted" aria-label="User menu">
             <div className="size-6 rounded-full bg-secondary/80 flex items-center justify-center">
-              <User className="size-3" />
+              <User className="size-3" aria-hidden="true" />
             </div>
             <span className="text-xs font-medium hidden sm:inline-block capitalize">
               {user?.email.split('@')[0]}

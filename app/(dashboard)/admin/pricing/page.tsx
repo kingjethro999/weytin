@@ -1,7 +1,23 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { prisma } from '@/lib/prisma';
+import { PriceRuleEditor } from '@/components/admin/PriceRuleEditor';
+import { cookies } from 'next/headers';
+import { verifyJWT } from '@/lib/auth/jwt';
+import { redirect } from 'next/navigation';
 
 export default async function AdminPricingPage() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get('weytin_session_token')?.value;
+  if (!token) redirect('/login');
+
+  const payload = await verifyJWT(token);
+  if (!payload?.id) redirect('/login');
+
+  const profile = await prisma.profile.findUnique({
+    where: { id: payload.id },
+    select: { role: true },
+  });
+  if (!profile || profile.role !== 'admin') redirect('/dashboard');
+
   const rules = await prisma.priceRule.findMany({
     orderBy: { updatedAt: 'desc' },
     include: {
@@ -9,35 +25,31 @@ export default async function AdminPricingPage() {
       location: { select: { name: true, state: true } },
       updater: { select: { email: true } },
     },
-    take: 100,
+    take: 200,
   });
 
+  const mappedRules = rules.map((r) => ({
+    id: r.id,
+    product_id: r.productId,
+    location_id: r.locationId,
+    min_price: Number(r.minPrice),
+    max_price: Number(r.maxPrice),
+    updated_at: r.updatedAt,
+    product: { name: r.product.name, unit: r.product.unit },
+    location: { name: r.location.name, state: r.location.state },
+    updater: { email: r.updater?.email ?? null },
+  }));
+
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold tracking-tight">Pricing Rules & Limits</h1>
-      <Card className="bg-card border-border/70">
-        <CardHeader>
-          <CardTitle>Live Price Bounds</CardTitle>
-          <CardDescription>Rules currently stored in the database.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {rules.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No price rules configured yet.</p>
-          ) : (
-            rules.map((rule) => (
-              <div key={rule.id} className="rounded-md border border-border/60 bg-muted/40 px-3 py-2">
-                <p className="text-sm font-medium">
-                  {rule.product.name} ({rule.product.unit ?? 'unit'}) • {rule.location.name}, {rule.location.state}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  Min ₦{Number(rule.minPrice).toLocaleString()} • Max ₦{Number(rule.maxPrice).toLocaleString()} •
-                  {' '}Updated by {rule.updater.email ?? 'Unknown'} on {rule.updatedAt.toLocaleString()}
-                </p>
-              </div>
-            ))
-          )}
-        </CardContent>
-      </Card>
+    <div className="space-y-6 max-w-5xl">
+      <header>
+        <p className="text-[10px] font-data uppercase tracking-[0.2em] text-muted-foreground">Admin</p>
+        <h1 className="text-3xl font-semibold tracking-tight mt-1">Pricing Rules</h1>
+        <p className="text-muted-foreground mt-1">
+          Configure min/max price bounds per product per location. Prices outside these bounds are automatically flagged.
+        </p>
+      </header>
+      <PriceRuleEditor initialRules={mappedRules} />
     </div>
   );
 }

@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 import { verifyJWT } from '@/lib/auth/jwt';
 import { logger } from '@/lib/utils/logger';
 import { normaliseError } from '@/lib/utils/errors';
+import { getValidatedPricePool, calculateAveragePrice, calculateMedianPrice } from '@/lib/price/calculate';
+import { getGroqMarketContext } from '@/lib/price/groqMarketData';
 
 export async function POST(req: NextRequest) {
   try {
@@ -110,52 +112,94 @@ export async function GET(req: NextRequest) {
   try {
     const searchParams = req.nextUrl.searchParams;
     const productId = searchParams.get('productId');
-    const locationId = searchParams.get('locationId');
+    const locationId = searchParams.get('locationId') || undefined;
 
-    if (!productId || !locationId) {
-      return NextResponse.json({ error: 'Missing productId or locationId' }, { status: 400 });
+    if (!productId) {
+      return NextResponse.json({ error: 'Missing productId' }, { status: 400 });
+    }
+
+    // Fetch product & location to pass to Groq if needed
+    const product = await prisma.product.findUnique({ where: { id: productId } });
+    const location = locationId ? await prisma.location.findUnique({ where: { id: locationId } }) : null;
+
+    if (!product) {
+      return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+    }
+
+    if (locationId && !location) {
+      return NextResponse.json({ error: 'Location not found' }, { status: 404 });
     }
 
     // 1. Fetch rule
-    const rule = await prisma.priceRule.findUnique({
+    const rule = locationId ? await prisma.priceRule.findUnique({
       where: {
         productId_locationId: { productId, locationId },
       },
-    });
+    }) : null;
+
+    let minPrice = rule ? Number(rule.minPrice) : undefined;
+    let maxPrice = rule ? Number(rule.maxPrice) : undefined;
 
     // 2. Fetch supply entries for stats
     const entries = await prisma.supplyEntry.findMany({
-      where: { productId, locationId },
+      where: { 
+        productId,
+        ...(locationId ? { locationId } : {}),
+      },
       select: { price: true },
     });
 
+    // 3. Groq AI Fallback for baseline range & historical context if missing rule or entries
+    let aiBaseline = null;
+    if (!rule || entries.length === 0) {
+      aiBaseline = await getGroqMarketContext(
+        product.name,
+        product.unit || 'unit',
+        location ? `${location.name}, ${location.state}` : 'Nigeria'
+      );
+
+      // Use AI ranges as validation baseline if admin rules are not defined
+      if (minPrice === undefined) minPrice = aiBaseline.minPrice;
+      if (maxPrice === undefined) maxPrice = aiBaseline.maxPrice;
+    }
+
+    // 4. Price Validation Layer
+    const rawPrices = entries.map((e) => Number(e.price));
+    const { validPrices, discardedCount } = getValidatedPricePool(rawPrices, minPrice, maxPrice);
+
     let stats = null;
-    if (entries.length > 0) {
-      const prices = entries.map((e) => Number(e.price));
-      const sorted = [...prices].sort((a, b) => a - b);
-      const avg = prices.reduce((acc, p) => acc + p, 0) / prices.length;
-      
-      let median = 0;
-      if (sorted.length > 0) {
-        const mid = Math.floor(sorted.length / 2);
-        median = sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
-      }
+    if (validPrices.length > 0) {
+      const avg = calculateAveragePrice(validPrices);
+      const median = calculateMedianPrice(validPrices);
 
       stats = {
         avg,
         median,
-        min: Math.min(...prices),
-        max: Math.max(...prices),
-        is_outlier: false,
+        min: Math.min(...validPrices),
+        max: Math.max(...validPrices),
+        discarded_count: discardedCount,
+        entry_count: rawPrices.length,
+        is_ai_estimate: false,
+      };
+    } else if (aiBaseline) {
+      // Fallback stats directly from AI if no valid entries are present
+      stats = {
+        avg: aiBaseline.averagePrice,
+        median: aiBaseline.averagePrice,
+        min: aiBaseline.minPrice,
+        max: aiBaseline.maxPrice,
+        discarded_count: discardedCount,
+        entry_count: 0,
+        is_ai_estimate: true,
       };
     }
 
-    // 3. Fetch flags
+    // 5. Fetch flags
     const flags = await prisma.priceFlag.findMany({
       where: {
         supplyEntry: {
           productId,
-          locationId,
+          ...(locationId ? { locationId } : {}),
         },
       },
       include: {
@@ -190,9 +234,25 @@ export async function GET(req: NextRequest) {
         max_price: Number(rule.maxPrice),
         updated_by: rule.updatedBy,
         updated_at: rule.updatedAt,
-      } : null,
+      } : (aiBaseline ? {
+        id: 'ai-estimated',
+        product_id: productId,
+        location_id: locationId || 'national',
+        min_price: aiBaseline.minPrice,
+        max_price: aiBaseline.maxPrice,
+        updated_by: 'ai-system',
+        updated_at: new Date(),
+      } : null),
       stats,
       flags: mappedFlags,
+      ai_baseline: aiBaseline ? {
+        min_price: aiBaseline.minPrice,
+        max_price: aiBaseline.maxPrice,
+        average_price: aiBaseline.averagePrice,
+        historical_trend: aiBaseline.historicalTrend,
+        predicted_price: aiBaseline.predictedPrice,
+        confidence: aiBaseline.confidence,
+      } : null,
     });
   } catch (error: unknown) {
     const normalised = normaliseError(error);

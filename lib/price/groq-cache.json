@@ -1,0 +1,1080 @@
+{
+  "candle-pack-of-6-nigeria": {
+    "data": {
+      "minPrice": 850,
+      "maxPrice": 1500,
+      "averagePrice": 1100,
+      "historicalTrend": "The price of candles in Nigeria has been relatively stable over the past quarter, with a slight increase due to rising import costs. However, local manufacturers have helped to maintain competitive pricing, limiting the overall impact on consumers.",
+      "predictedPrice": 1150,
+      "confidence": 80
+    },
+    "timestamp": 1779652958752
+  },
+  "agege-bread-per-loaf-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 500,
+      "averagePrice": 350,
+      "historicalTrend": "The price of Agege bread has been relatively stable in recent months, with a slight increase due to rising production costs. However, prices may fluctuate based on location and availability of ingredients.",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658273155
+  },
+  "a4-paper-ream-per-ream-500-sheets-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4500,
+      "averagePrice": 3500,
+      "historicalTrend": "The price of A4 paper reams in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation and currency fluctuations. However, recent market trends indicate a potential decrease in prices as new suppliers enter the market.",
+      "predictedPrice": 3200,
+      "confidence": 80
+    },
+    "timestamp": 1779658273251
+  },
+  "aaa-battery-pack-of-4-pack-of-4-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4500,
+      "averagePrice": 3500,
+      "historicalTrend": "The price of AAA batteries in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, prices may fluctuate based on the current economic conditions and global market trends.",
+      "predictedPrice": 3700,
+      "confidence": 80
+    },
+    "timestamp": 1779658273289
+  },
+  "aa-battery-pack-of-4-pack-of-4-nigeria": {
+    "data": {
+      "minPrice": 1200,
+      "maxPrice": 2500,
+      "averagePrice": 1850,
+      "historicalTrend": "Prices of AA batteries have remained relatively stable in the Nigerian market over the past quarter, with a slight increase due to inflation. However, there has been a noticeable fluctuation in prices across different regions and retailers.",
+      "predictedPrice": 2000,
+      "confidence": 80
+    },
+    "timestamp": 1779658273294
+  },
+  "7up-35cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 250,
+      "averagePrice": 200,
+      "historicalTrend": "The price of 7Up has been relatively stable over the past quarter, with a slight increase in recent months due to inflation. However, prices may vary depending on location and retailer, with urban areas tend to have higher prices than rural areas",
+      "predictedPrice": 220,
+      "confidence": 80
+    },
+    "timestamp": 1779658273368
+  },
+  "air-freshener-lavender-per-can-nigeria": {
+    "data": {
+      "minPrice": 500,
+      "maxPrice": 1500,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of Air Freshener has remained relatively stable over the past quarter, with a slight increase in demand during the summer months. However, the recent influx of imported products has led to a slight decrease in prices.",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658273372
+  },
+  "airtime-glo-n100-per-n100-unit-nigeria": {
+    "data": {
+      "minPrice": 95,
+      "maxPrice": 105,
+      "averagePrice": 100,
+      "historicalTrend": "The price of Glo N100 airtime has remained relatively stable in recent months, with minimal fluctuations due to market forces. However, there has been a slight increase in prices in some regions due to rising operational costs",
+      "predictedPrice": 102,
+      "confidence": 80
+    },
+    "timestamp": 1779658274941
+  },
+  "airtime-mtn-n100-per-n100-unit-nigeria": {
+    "data": {
+      "minPrice": 95,
+      "maxPrice": 105,
+      "averagePrice": 100,
+      "historicalTrend": "The price of Airtime MTN N100 has been relatively stable over the past quarter, with minimal fluctuations due to market competition. However, there has been a slight increase in prices due to recent changes in telecom regulations.",
+      "predictedPrice": 102,
+      "confidence": 85
+    },
+    "timestamp": 1779658275248
+  },
+  "antiseptic-soap-dettol-per-bar-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 500,
+      "averagePrice": 350,
+      "historicalTrend": "The price of antiseptic soap has been relatively stable over the past quarter, with a slight increase due to inflation. However, recent supply chain disruptions have led to some price fluctuations in certain regions",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658275260
+  },
+  "avocado-pear-per-fruit-nigeria": {
+    "data": {
+      "minPrice": 200,
+      "maxPrice": 500,
+      "averagePrice": 350,
+      "historicalTrend": "The price of Avocado has been steadily increasing over the past quarter due to high demand and limited supply. However, recent imports have led to a slight stabilization of prices in major cities like Lagos and Abuja.",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658275297
+  },
+  "amoxicillin-capsule-per-strip-of-10-nigeria": {
+    "data": {
+      "minPrice": 850,
+      "maxPrice": 1500,
+      "averagePrice": 1100,
+      "historicalTrend": "The price of Amoxicillin Capsule in Nigeria has been relatively stable over the past quarter, with a slight increase of 5% due to inflation. However, prices may fluctuate based on location and availability of the product.",
+      "predictedPrice": 1150,
+      "confidence": 80
+    },
+    "timestamp": 1779658275316
+  },
+  "aluminium-pot-medium-per-piece-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4500,
+      "averagePrice": 3500,
+      "historicalTrend": "The price of Aluminium Pots in Nigeria has been relatively stable over the past quarter, with a slight increase due to rising raw material costs. However, the market has seen some fluctuations in response to changes in consumer demand and currency exchange rates.",
+      "predictedPrice": 3800,
+      "confidence": 80
+    },
+    "timestamp": 1779658275363
+  },
+  "baby-diaper-pampers-m-pack-of-10-nigeria": {
+    "data": {
+      "minPrice": 4500,
+      "maxPrice": 6500,
+      "averagePrice": 5500,
+      "historicalTrend": "The price of Pampers M baby diapers in Nigeria has been steadily increasing over the past quarter due to high demand and supply chain disruptions. However, prices have stabilized in recent weeks, with some retailers offering discounts and promotions to drive sales.",
+      "predictedPrice": 5800,
+      "confidence": 80
+    },
+    "timestamp": 1779658276989
+  },
+  "ballpoint-pen-blue-per-piece-nigeria": {
+    "data": {
+      "minPrice": 50,
+      "maxPrice": 200,
+      "averagePrice": 120,
+      "historicalTrend": "The price of ballpoint pens in Nigeria has been relatively stable over the past few months, with a slight increase due to inflation. However, there was a brief surge in prices during the peak of the COVID-19 pandemic due to supply chain disruptions.",
+      "predictedPrice": 125,
+      "confidence": 80
+    },
+    "timestamp": 1779658277202
+  },
+  "bathing-soap-dove-per-bar-nigeria": {
+    "data": {
+      "minPrice": 550,
+      "maxPrice": 850,
+      "averagePrice": 700,
+      "historicalTrend": "The price of Dove bathing soap has been relatively stable in the Nigerian market over the past quarter, with a slight increase of 5% due to inflation. However, prices may vary depending on the location and retailer.",
+      "predictedPrice": 720,
+      "confidence": 80
+    },
+    "timestamp": 1779658277204
+  },
+  "banana-bunch-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1500,
+      "averagePrice": 1100,
+      "historicalTrend": "Banana prices in Nigeria have been relatively stable over the past quarter, with a slight increase in recent weeks due to seasonal demand. The prices are expected to remain steady in the coming months, with minor fluctuations based on regional supply and demand.",
+      "predictedPrice": 1200,
+      "confidence": 80
+    },
+    "timestamp": 1779658277205
+  },
+  "baby-wipes-per-pack-80s-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1500,
+      "averagePrice": 1200,
+      "historicalTrend": "The price of baby wipes in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, there was a brief surge in prices during the holiday season due to increased demand.",
+      "predictedPrice": 1250,
+      "confidence": 80
+    },
+    "timestamp": 1779658277207
+  },
+  "ballpoint-pen-pack-of-10-pack-of-10-nigeria": {
+    "data": {
+      "minPrice": 1200,
+      "maxPrice": 2500,
+      "averagePrice": 1850,
+      "historicalTrend": "The prices of Ballpoint Pen packs have been relatively stable over the past quarter, with a slight increase of 5% due to inflation. However, there was a brief surge in prices during the holiday season, which has since normalized.",
+      "predictedPrice": 1920,
+      "confidence": 80
+    },
+    "timestamp": 1779658277209
+  },
+  "beans-black-eyed-1-mudu-2kg-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of black-eyed beans has been relatively stable over the past quarter, with a slight increase due to seasonal demand. However, prices may fluctuate based on regional supply and demand dynamics.",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658278844
+  },
+  "bitter-leaf-bunch-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 220,
+      "historicalTrend": "The price of bitter leaf has remained relatively stable over the past quarter, with a slight increase in recent weeks due to high demand. However, prices may fluctuate based on seasonal availability and regional supply chain disruptions",
+      "predictedPrice": 250,
+      "confidence": 80
+    },
+    "timestamp": 1779658279251
+  },
+  "beef-cow-meat-per-kg-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4000,
+      "averagePrice": 3200,
+      "historicalTrend": "Beef prices in Nigeria have been steadily increasing over the past quarter due to high demand and limited supply. The recent surge in cattle feed costs has also contributed to the upward trend in beef prices.",
+      "predictedPrice": 3500,
+      "confidence": 80
+    },
+    "timestamp": 1779658279254
+  },
+  "bigi-apple-60cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 400,
+      "averagePrice": 320,
+      "historicalTrend": "The price of Bigi Apple has been relatively stable over the past quarter, with a slight increase in recent months due to rising production costs. However, the market has seen some fluctuations in response to changes in consumer demand and competition from other beverage brands.",
+      "predictedPrice": 330,
+      "confidence": 80
+    },
+    "timestamp": 1779658279256
+  },
+  "beans-brown-honey-1-mudu-2kg-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of Beans (Brown Honey) has been relatively stable over the past quarter, with a slight increase in recent weeks due to seasonal demand. However, prices are expected to remain steady as supply from local farmers continues to meet market needs",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658279258
+  },
+  "bigi-cola-60cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 250,
+      "averagePrice": 200,
+      "historicalTrend": "The price of Bigi Cola has been relatively stable over the past quarter, with a slight increase in recent months due to rising production costs. However, the market remains competitive, and prices may fluctuate based on regional demand and supply chain factors",
+      "predictedPrice": 210,
+      "confidence": 80
+    },
+    "timestamp": 1779658279264
+  },
+  "black-soap-dudu-osun-per-bar-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 220,
+      "historicalTrend": "The price of Black Soap has remained relatively stable in the Nigerian market over the past quarter, with a slight increase in price due to inflation. However, the prices may fluctuate based on the location and availability of the product.",
+      "predictedPrice": 240,
+      "confidence": 80
+    },
+    "timestamp": 1779658280858
+  },
+  "blocks-9-inches-per-block-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 450,
+      "averagePrice": 350,
+      "historicalTrend": "The price of 9-inch blocks in Nigeria has been relatively stable over the past quarter, with a slight increase due to rising cement costs. However, recent market fluctuations have led to some price variations across different regions.",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658281207
+  },
+  "blood-glucose-test-strip-per-pack-of-25-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 5000,
+      "averagePrice": 3750,
+      "historicalTrend": "Prices of Blood Glucose Test Strips in Nigeria have been relatively stable over the past quarter, with a slight increase due to inflation. However, recent imports have led to a minor decrease in prices, making them more affordable for consumers",
+      "predictedPrice": 4000,
+      "confidence": 80
+    },
+    "timestamp": 1779658281214
+  },
+  "body-lotion-jergens-per-bottle-400ml-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4500,
+      "averagePrice": 3500,
+      "historicalTrend": "Prices of Jergens body lotion have been relatively stable over the past quarter, with a slight increase due to currency fluctuations. However, recent imports have led to a slight decrease in prices in some regions.",
+      "predictedPrice": 3800,
+      "confidence": 80
+    },
+    "timestamp": 1779658281220
+  },
+  "bleach-jik-per-bottle-500ml-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 450,
+      "averagePrice": 350,
+      "historicalTrend": "The price of JIK bleach has been relatively stable over the past quarter, with a slight increase due to inflation. However, recent imports have led to a slight decrease in prices, making it more competitive in the market",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658281225
+  },
+  "blocks-6-inches-per-block-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 450,
+      "averagePrice": 350,
+      "historicalTrend": "The price of blocks in Nigeria has been relatively stable over the past quarter, with a slight increase due to rising cement costs. However, recent market trends indicate a potential decrease in prices as new suppliers enter the market.",
+      "predictedPrice": 320,
+      "confidence": 80
+    },
+    "timestamp": 1779658281233
+  },
+  "broom-local-per-piece-nigeria": {
+    "data": {
+      "minPrice": 500,
+      "maxPrice": 1500,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of brooms has been relatively stable in the Nigerian market, with a slight increase in recent months due to inflation. However, the prices are expected to remain steady as the demand for brooms is consistent throughout the year.",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658284709
+  },
+  "cassava-fresh-per-kg-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 220,
+      "historicalTrend": "The price of fresh cassava in Nigeria has been relatively stable over the past few months, with a slight increase due to seasonal demand. However, prices may fluctuate depending on factors such as weather conditions and supply chain disruptions.",
+      "predictedPrice": 240,
+      "confidence": 80
+    },
+    "timestamp": 1779658286691
+  },
+  "coartem-malaria-drug-per-pack-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4500,
+      "averagePrice": 3500,
+      "historicalTrend": "The price of Coartem has been relatively stable in the Nigerian market over the past quarter, with a slight increase due to high demand during the rainy season. However, prices may fluctuate based on the availability of the product and competition among pharmaceutical companies.",
+      "predictedPrice": 3800,
+      "confidence": 80
+    },
+    "timestamp": 1779658289213
+  },
+  "cooking-gas-refill-5kg-5kg-refill-nigeria": {
+    "data": {
+      "minPrice": 4500,
+      "maxPrice": 5500,
+      "averagePrice": 4950,
+      "historicalTrend": "The price of cooking gas refill has been steadily increasing over the past few months due to global demand and supply chain issues. However, there has been a slight stabilization in prices in recent weeks, with some retailers offering discounts to stay competitive.",
+      "predictedPrice": 5050,
+      "confidence": 80
+    },
+    "timestamp": 1779658342534
+  },
+  "cotton-wool-per-100g-pack-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 220,
+      "historicalTrend": "The price of cotton wool has been relatively stable over the past quarter, with a slight increase due to rising import costs. However, prices may fluctuate based on changes in global cotton prices and local demand.",
+      "predictedPrice": 240,
+      "confidence": 80
+    },
+    "timestamp": 1779658343365
+  },
+  "crackers-shortbread-per-pack-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1500,
+      "averagePrice": 1100,
+      "historicalTrend": "The price of shortbread crackers in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, there was a brief surge in prices during the holiday season, which has since normalized.",
+      "predictedPrice": 1200,
+      "confidence": 85
+    },
+    "timestamp": 1779658343720
+  },
+  "cucumber-per-piece-nigeria": {
+    "data": {
+      "minPrice": 50,
+      "maxPrice": 150,
+      "averagePrice": 100,
+      "historicalTrend": "Cucumber prices in Nigeria have been relatively stable over the past quarter, with a slight increase in recent weeks due to seasonal demand. However, prices are expected to remain steady as new harvests are anticipated to hit the market soon",
+      "predictedPrice": 120,
+      "confidence": 80
+    },
+    "timestamp": 1779658343722
+  },
+  "crayfish-ground-250g-cup-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of Crayfish has been relatively stable in the past quarter, with a slight increase due to seasonal demand. However, fluctuations in the global market and local supply chain have caused some variations in prices across different regions in Nigeria.",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658343761
+  },
+  "corned-beef-tin-per-tin-340g-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of Corned Beef in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, recent imports have led to a slight decrease in prices, making it more affordable for consumers.",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658343798
+  },
+  "dano-milk-powder-360g-360g-sachet-nigeria": {
+    "data": {
+      "minPrice": 850,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of Dano Milk Powder has been relatively stable over the past quarter, with minor fluctuations due to changes in global dairy prices. However, a slight increase in price was observed in recent weeks due to increased demand during the holiday season",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658344396
+  },
+  "data-subscription-1gb-mtn-per-1gb-nigeria": {
+    "data": {
+      "minPrice": 450,
+      "maxPrice": 550,
+      "averagePrice": 500,
+      "historicalTrend": "The price of 1GB MTN data subscription in Nigeria has been relatively stable over the past few months, with a slight increase in recent weeks due to rising demand. However, prices may fluctuate based on various market factors, including changes in government policies and network provider tariffs.",
+      "predictedPrice": 520,
+      "confidence": 80
+    },
+    "timestamp": 1779658345295
+  },
+  "dental-floss-per-pack-nigeria": {
+    "data": {
+      "minPrice": 500,
+      "maxPrice": 2000,
+      "averagePrice": 1200,
+      "historicalTrend": "The price of dental floss in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, there was a brief surge in prices during the pandemic, which has since normalized.",
+      "predictedPrice": 1250,
+      "confidence": 80
+    },
+    "timestamp": 1779658345607
+  },
+  "dettol-antiseptic-500ml-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 950,
+      "maxPrice": 1400,
+      "averagePrice": 1095,
+      "historicalTrend": "The price of Dettol Antiseptic has been relatively stable over the past few months, with a slight increase due to inflation and currency fluctuations. However, the recent surge in demand for hygiene products has led to some price volatility in certain regions.",
+      "predictedPrice": 1120,
+      "confidence": 85
+    },
+    "timestamp": 1779658345638
+  },
+  "deodorant-rexona-per-stick-nigeria": {
+    "data": {
+      "minPrice": 1200,
+      "maxPrice": 2000,
+      "averagePrice": 1500,
+      "historicalTrend": "The price of Rexona deodorant sticks in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, there was a notable price surge in the preceding quarter due to supply chain disruptions.",
+      "predictedPrice": 1650,
+      "confidence": 80
+    },
+    "timestamp": 1779658345653
+  },
+  "detergent-omo-1kg-pack-nigeria": {
+    "data": {
+      "minPrice": 550,
+      "maxPrice": 750,
+      "averagePrice": 650,
+      "historicalTrend": "The price of Omo detergent has been relatively stable over the past quarter, with a slight increase due to inflation. However, the recent surge in demand has led to a moderate price hike in some regions.",
+      "predictedPrice": 680,
+      "confidence": 85
+    },
+    "timestamp": 1779658345684
+  },
+  "diesel-ago-1-litre-nigeria": {
+    "data": {
+      "minPrice": 825,
+      "maxPrice": 950,
+      "averagePrice": 887,
+      "historicalTrend": "Diesel prices in Nigeria have been steadily increasing over the past few months due to global market trends and local supply chain disruptions. The recent prices have been volatile, with some regions experiencing higher prices than others.",
+      "predictedPrice": 920,
+      "confidence": 80
+    },
+    "timestamp": 1779658346263
+  },
+  "digestive-biscuits-per-pack-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 600,
+      "averagePrice": 420,
+      "historicalTrend": "Prices of digestive biscuits in Nigeria have been relatively stable over the past quarter, with a slight increase in recent months due to inflation. The market has seen a surge in demand for premium brands, leading to a slight rise in average prices.",
+      "predictedPrice": 450,
+      "confidence": 80
+    },
+    "timestamp": 1779658347195
+  },
+  "dishwashing-liquid-mama-lemon-per-bottle-500ml-nigeria": {
+    "data": {
+      "minPrice": 550,
+      "maxPrice": 850,
+      "averagePrice": 700,
+      "historicalTrend": "The price of Dishwashing Liquid Mama Lemon has been steadily increasing over the past quarter due to rising raw material costs. However, the price has stabilized in recent weeks, with some retailers offering discounts to clear inventory.",
+      "predictedPrice": 750,
+      "confidence": 80
+    },
+    "timestamp": 1779658347556
+  },
+  "doughnut-local-per-piece-nigeria": {
+    "data": {
+      "minPrice": 100,
+      "maxPrice": 250,
+      "averagePrice": 175,
+      "historicalTrend": "The price of doughnuts in Nigeria has been relatively stable over the past few months, with a slight increase due to rising flour costs. However, prices may vary depending on location and availability of ingredients.",
+      "predictedPrice": 180,
+      "confidence": 80
+    },
+    "timestamp": 1779658347558
+  },
+  "dried-pepper-tatashe-1kg-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of dried pepper has been relatively stable in recent months, with a slight increase due to seasonal demand. However, fluctuations in global commodity prices may impact future prices.",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658347561
+  },
+  "dried-catfish-eja-aro-1-piece-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1500,
+      "averagePrice": 1200,
+      "historicalTrend": "The price of dried catfish has remained relatively stable over the past quarter, with a slight increase due to seasonal demand. However, recent fluctuations in the Nigerian economy have led to some price volatility in the market.",
+      "predictedPrice": 1250,
+      "confidence": 85
+    },
+    "timestamp": 1779658347585
+  },
+  "earphones-wired-per-piece-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 8000,
+      "averagePrice": 4500,
+      "historicalTrend": "The prices of earphones in Nigeria have been relatively stable over the past few months, with a slight increase in demand due to the rise of online learning and remote work. However, the recent influx of affordable options from Asian markets has put downward pressure on prices of mid-range earphones.",
+      "predictedPrice": 4200,
+      "confidence": 80
+    },
+    "timestamp": 1779658348331
+  },
+  "egg-roll-per-piece-nigeria": {
+    "data": {
+      "minPrice": 50,
+      "maxPrice": 150,
+      "averagePrice": 100,
+      "historicalTrend": "Egg roll prices in Nigeria have been relatively stable over the past quarter, with a slight increase in recent weeks due to rising production costs. The prices are expected to remain steady in the short term, with minor fluctuations based on location and vendor.",
+      "predictedPrice": 110,
+      "confidence": 80
+    },
+    "timestamp": 1779658349306
+  },
+  "eggs-crate-of-30-nigeria": {
+    "data": {
+      "minPrice": 1500,
+      "maxPrice": 2500,
+      "averagePrice": 2000,
+      "historicalTrend": "Egg prices in Nigeria have been relatively stable over the past quarter, with a slight increase due to rising feed costs. However, prices may fluctuate in the coming months due to changes in consumer demand and production levels",
+      "predictedPrice": 2100,
+      "confidence": 80
+    },
+    "timestamp": 1779658353716
+  },
+  "envelope-a4-size-per-piece-nigeria": {
+    "data": {
+      "minPrice": 15,
+      "maxPrice": 50,
+      "averagePrice": 30,
+      "historicalTrend": "The price of A4 size envelopes in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, a recent surge in demand from educational institutions has led to a minor price hike in some regions.",
+      "predictedPrice": 32,
+      "confidence": 80
+    },
+    "timestamp": 1779658354393
+  },
+  "electric-fan-table-per-piece-nigeria": {
+    "data": {
+      "minPrice": 8000,
+      "maxPrice": 25000,
+      "averagePrice": 15000,
+      "historicalTrend": "The prices of electric fans in Nigeria have been relatively stable over the past quarter, with a slight increase due to the onset of the hot season. However, prices may fluctuate based on factors such as brand, quality, and location.",
+      "predictedPrice": 16000,
+      "confidence": 80
+    },
+    "timestamp": 1779658354452
+  },
+  "eraser-per-piece-nigeria": {
+    "data": {
+      "minPrice": 10,
+      "maxPrice": 50,
+      "averagePrice": 25,
+      "historicalTrend": "The price of erasers in Nigeria has remained relatively stable over the past quarter, with a slight increase in prices due to inflation. However, the market has seen a surge in demand for high-quality erasers, leading to a slight premium on prices for these products.",
+      "predictedPrice": 27.5,
+      "confidence": 80
+    },
+    "timestamp": 1779658354745
+  },
+  "eva-water-75cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 250,
+      "averagePrice": 200,
+      "historicalTrend": "The price of Eva Water has remained relatively stable over the past quarter, with a slight increase in recent months due to rising production costs. However, the market has seen some fluctuations in response to changes in consumer demand and competition from other brands",
+      "predictedPrice": 210,
+      "confidence": 80
+    },
+    "timestamp": 1779658355149
+  },
+  "exercise-book-60-leaves-per-book-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 220,
+      "historicalTrend": "The price of exercise books in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, prices may fluctuate depending on the region and availability of the product",
+      "predictedPrice": 250,
+      "confidence": 80
+    },
+    "timestamp": 1779658355183
+  },
+  "exercise-book-80-leaves-per-book-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 220,
+      "historicalTrend": "The prices of exercise books in Nigeria have been relatively stable over the past quarter, with a slight increase due to inflation. However, the recent surge in demand for educational materials has led to a moderate price hike in some regions.",
+      "predictedPrice": 250,
+      "confidence": 80
+    },
+    "timestamp": 1779658355635
+  },
+  "eye-drops-visine-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4500,
+      "averagePrice": 3500,
+      "historicalTrend": "The price of Eye Drops (Visine) in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, prices may fluctuate based on location and availability of the product.",
+      "predictedPrice": 3700,
+      "confidence": 80
+    },
+    "timestamp": 1779658356303
+  },
+  "fresh-fish-catfish-per-kg-nigeria": {
+    "data": {
+      "minPrice": 1200,
+      "maxPrice": 2000,
+      "averagePrice": 1500,
+      "historicalTrend": "The price of fresh catfish has been relatively stable in the Nigerian market over the past quarter, with a slight increase due to seasonal demand. However, prices may fluctuate based on factors such as supply chain disruptions and weather conditions.",
+      "predictedPrice": 1600,
+      "confidence": 80
+    },
+    "timestamp": 1779658358538
+  },
+  "extension-cable-3-way-per-piece-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1500,
+      "averagePrice": 1200,
+      "historicalTrend": "The prices of extension cables in Nigeria have been relatively stable over the past quarter, with a slight increase due to inflation. However, recent imports have led to a slight decrease in prices, making them more competitive in the market.",
+      "predictedPrice": 1250,
+      "confidence": 80
+    },
+    "timestamp": 1779658361247
+  },
+  "fresh-fish-tilapia-per-kg-nigeria": {
+    "data": {
+      "minPrice": 1200,
+      "maxPrice": 2000,
+      "averagePrice": 1600,
+      "historicalTrend": "The price of fresh tilapia fish in Nigeria has been relatively stable over the past quarter, with a slight increase due to seasonal demand. However, prices may fluctuate based on regional supply and demand dynamics.",
+      "predictedPrice": 1650,
+      "confidence": 80
+    },
+    "timestamp": 1779658363661
+  },
+  "goat-live-per-animal-nigeria": {
+    "data": {
+      "minPrice": 25000,
+      "maxPrice": 45000,
+      "averagePrice": 35000,
+      "historicalTrend": "The price of live goats in Nigeria has been steadily increasing over the past quarter due to high demand and limited supply. However, prices may fluctuate based on factors such as seasonality and regional festivals.",
+      "predictedPrice": 38000,
+      "confidence": 80
+    },
+    "timestamp": 1779658365795
+  },
+  "highlighter-per-piece-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 500,
+      "averagePrice": 300,
+      "historicalTrend": "The price of highlighters in Nigeria has been relatively stable over the past few months, with a slight increase due to inflation. However, there was a brief surge in prices during the back-to-school season, which has since normalized.",
+      "predictedPrice": 320,
+      "confidence": 80
+    },
+    "timestamp": 1779658368447
+  },
+  "garri-white-paint-bucket-10l-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4000,
+      "averagePrice": 3200,
+      "historicalTrend": "The price of Garri has been relatively stable in recent months, with a slight increase due to seasonal demand. However, prices may fluctuate based on factors such as production costs and market supply.",
+      "predictedPrice": 3500,
+      "confidence": 80
+    },
+    "timestamp": 1779658370522
+  },
+  "heineken-60cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 500,
+      "maxPrice": 800,
+      "averagePrice": 650,
+      "historicalTrend": "The price of Heineken beer in Nigeria has been relatively stable over the past few months, with a slight increase due to rising production costs. However, the prices may fluctuate depending on the region and retailer.",
+      "predictedPrice": 680,
+      "confidence": 85
+    },
+    "timestamp": 1779658372878
+  },
+  "7up-35cl-per-bottle-municipal-area-council-fct": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 250,
+      "averagePrice": 200,
+      "historicalTrend": "The price of 7Up has remained relatively stable in recent months, with a slight increase due to inflation. However, prices may fluctuate depending on the location and availability of the product.",
+      "predictedPrice": 210,
+      "confidence": 80
+    },
+    "timestamp": 1779658432557
+  },
+  "bournvita-500g-500g-jar-nigeria": {
+    "data": {
+      "minPrice": 1050,
+      "maxPrice": 1400,
+      "averagePrice": 1225,
+      "historicalTrend": "The price of Bournvita has been relatively stable in the past quarter, with a slight increase of 5% due to inflation. However, prices may fluctuate based on seasonal demand and supply chain disruptions",
+      "predictedPrice": 1300,
+      "confidence": 80
+    },
+    "timestamp": 1779658488561
+  },
+  "body-spray-lynx-axe-per-can-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4500,
+      "averagePrice": 3500,
+      "historicalTrend": "The price of body sprays has been relatively stable in the Nigerian market over the past quarter, with a slight increase due to inflation. However, there was a brief surge in prices during the festive season, which has since normalized.",
+      "predictedPrice": 3800,
+      "confidence": 80
+    },
+    "timestamp": 1779658488611
+  },
+  "bottled-water-75cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 200,
+      "historicalTrend": "The price of bottled water in Nigeria has been relatively stable over the past quarter, with a slight increase in recent months due to rising production costs. However, the market is expected to remain competitive, with prices fluctuating based on location and brand.",
+      "predictedPrice": 220,
+      "confidence": 80
+    },
+    "timestamp": 1779658488622
+  },
+  "broiler-chicken-dressed-per-kg-nigeria": {
+    "data": {
+      "minPrice": 1200,
+      "maxPrice": 1800,
+      "averagePrice": 1500,
+      "historicalTrend": "The price of broiler chicken in Nigeria has been relatively stable over the past quarter, with a slight increase due to rising feed costs. However, prices may fluctuate based on seasonal demand and supply chain disruptions",
+      "predictedPrice": 1550,
+      "confidence": 80
+    },
+    "timestamp": 1779658489486
+  },
+  "bread-sliced-loaf-per-loaf-nigeria": {
+    "data": {
+      "minPrice": 500,
+      "maxPrice": 800,
+      "averagePrice": 650,
+      "historicalTrend": "Prices of sliced loaves in Nigeria have been relatively stable over the past quarter, with minor fluctuations due to changes in wheat prices. However, recent increases in production costs have led to a slight upward trend in prices.",
+      "predictedPrice": 680,
+      "confidence": 85
+    },
+    "timestamp": 1779658489518
+  },
+  "broiler-chicken-live-per-bird-2kg-nigeria": {
+    "data": {
+      "minPrice": 2500,
+      "maxPrice": 4000,
+      "averagePrice": 3200,
+      "historicalTrend": "The price of live broiler chickens in Nigeria has been relatively stable over the past quarter, with a slight increase due to rising feed costs. However, prices may fluctuate based on seasonal demand and regional supply chain disruptions.",
+      "predictedPrice": 3500,
+      "confidence": 80
+    },
+    "timestamp": 1779658489576
+  },
+  "bulb-energy-saver-20w-per-bulb-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 500,
+      "averagePrice": 350,
+      "historicalTrend": "The price of energy saver bulbs has been relatively stable in the Nigerian market, with a slight increase in recent months due to inflation. However, the prices are expected to remain steady as the demand for energy-efficient lighting solutions continues to grow",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658490560
+  },
+  "bulb-led-7w-per-bulb-nigeria": {
+    "data": {
+      "minPrice": 450,
+      "maxPrice": 800,
+      "averagePrice": 600,
+      "historicalTrend": "The price of LED bulbs in Nigeria has been relatively stable over the past few months, with a slight increase due to the rise in global demand for energy-efficient products. However, the prices may fluctuate based on the brand, quality, and availability of the product in the market.",
+      "predictedPrice": 620,
+      "confidence": 80
+    },
+    "timestamp": 1779658490578
+  },
+  "cabin-biscuits-per-pack-nigeria": {
+    "data": {
+      "minPrice": 200,
+      "maxPrice": 500,
+      "averagePrice": 350,
+      "historicalTrend": "The price of Cabin Biscuits in Nigeria has been relatively stable over the past quarter, with a slight increase in recent months due to inflation. However, prices may fluctuate based on location and availability of the product",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658491369
+  },
+  "coconut-water-per-nut-nigeria": {
+    "data": {
+      "minPrice": 50,
+      "maxPrice": 200,
+      "averagePrice": 120,
+      "historicalTrend": "The price of coconut water in Nigeria has been relatively stable over the past quarter, with a slight increase due to seasonal demand. However, prices may fluctuate based on regional supply and demand dynamics.",
+      "predictedPrice": 125,
+      "confidence": 80
+    },
+    "timestamp": 1779658543464
+  },
+  "chi-exotic-juice-50cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 400,
+      "averagePrice": 320,
+      "historicalTrend": "The price of Chi Exotic Juice has remained relatively stable over the past quarter, with a slight increase in recent weeks due to inflationary pressures. However, prices may fluctuate based on regional differences and retailer discounts",
+      "predictedPrice": 350,
+      "confidence": 80
+    },
+    "timestamp": 1779658544414
+  },
+  "fanta-orange-35cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 250,
+      "averagePrice": 200,
+      "historicalTrend": "The price of Fanta Orange has been relatively stable over the past quarter, with a slight increase in recent months due to inflation. However, prices may fluctuate depending on location and retailer.",
+      "predictedPrice": 220,
+      "confidence": 80
+    },
+    "timestamp": 1779658545905
+  },
+  "coffee-nescafe-3-in-1-per-sachet-nigeria": {
+    "data": {
+      "minPrice": 50,
+      "maxPrice": 100,
+      "averagePrice": 75,
+      "historicalTrend": "The price of Nescafe 3-in-1 coffee sachets in Nigeria has been relatively stable over the past quarter, with minor fluctuations due to changes in supply and demand. However, there has been a slight increase in prices over the past month due to rising production costs and currency exchange rates.",
+      "predictedPrice": 80,
+      "confidence": 85
+    },
+    "timestamp": 1779658545909
+  },
+  "five-alive-50cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 250,
+      "averagePrice": 200,
+      "historicalTrend": "The price of Five Alive has remained relatively stable in recent months, with a slight increase due to inflation. However, there was a notable price drop during the summer season due to increased competition from other fruit drink brands",
+      "predictedPrice": 220,
+      "confidence": 80
+    },
+    "timestamp": 1779658546564
+  },
+  "goldberg-lager-60cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 400,
+      "averagePrice": 320,
+      "historicalTrend": "The price of Goldberg Lager has been relatively stable in the Nigerian market, with a slight increase in recent months due to inflation. However, the prices may vary depending on the location and retailer, with urban areas tend to have higher prices than rural areas.",
+      "predictedPrice": 350,
+      "confidence": 80
+    },
+    "timestamp": 1779658546854
+  },
+  "guinness-stout-60cl-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 450,
+      "maxPrice": 650,
+      "averagePrice": 550,
+      "historicalTrend": "Prices of Guinness Stout have remained relatively stable in recent months, with a slight increase in response to inflationary pressures. However, the average price per bottle has been steadily rising due to increased production costs and distribution expenses.",
+      "predictedPrice": 580,
+      "confidence": 85
+    },
+    "timestamp": 1779658547131
+  },
+  "ice-cream-walls-500ml-500ml-tub-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "The price of Ice Cream has been relatively stable over the past quarter, with a slight increase in recent months due to rising production costs. However, prices may fluctuate based on seasonal demand and competition among retailers",
+      "predictedPrice": 1050,
+      "confidence": 80
+    },
+    "timestamp": 1779658547959
+  },
+  "kunu-drink-per-cup-nigeria": {
+    "data": {
+      "minPrice": 50,
+      "maxPrice": 200,
+      "averagePrice": 120,
+      "historicalTrend": "The price of Kunu drink has been relatively stable in recent months, with some fluctuations due to seasonal demand. However, there has been a slight increase in price due to rising costs of raw materials and transportation",
+      "predictedPrice": 125,
+      "confidence": 80
+    },
+    "timestamp": 1779658547966
+  },
+  "lucozade-boost-330ml-per-bottle-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 350,
+      "averagePrice": 300,
+      "historicalTrend": "Prices of Lucozade Boost have been relatively stable in the past quarter, with a slight increase due to inflation. However, recent supply chain disruptions have led to some price fluctuations in certain regions.",
+      "predictedPrice": 310,
+      "confidence": 80
+    },
+    "timestamp": 1779658548627
+  },
+  "malt-drink-malta-guinness-per-33cl-bottle-nigeria": {
+    "data": {
+      "minPrice": 200,
+      "maxPrice": 350,
+      "averagePrice": 275,
+      "historicalTrend": "The price of Malt Drink has remained relatively stable over the past quarter, with a slight increase in recent weeks due to rising production costs. However, consumer demand has also increased, leading to a slight upward trend in prices",
+      "predictedPrice": 285,
+      "confidence": 80
+    },
+    "timestamp": 1779658548694
+  },
+  "milo-400g-400g-tin-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1200,
+      "averagePrice": 1000,
+      "historicalTrend": "Prices of Milo have been relatively stable in the Nigerian market over the past few months, with a slight increase due to inflation. However, there was a minor fluctuation in prices during the festive season due to increased demand.",
+      "predictedPrice": 1050,
+      "confidence": 85
+    },
+    "timestamp": 1779658549216
+  },
+  "groundnut-oil-5-litre-bottle-nigeria": {
+    "data": {
+      "minPrice": 5500,
+      "maxPrice": 7500,
+      "averagePrice": 6500,
+      "historicalTrend": "The price of groundnut oil in Nigeria has been relatively stable over the past quarter, with a slight increase due to rising production costs. However, the recent harvest season has led to a slight decrease in prices, making it a good time for buyers to stock up.",
+      "predictedPrice": 6800,
+      "confidence": 85
+    },
+    "timestamp": 1779658555443
+  },
+  "palm-oil-25-litre-keg-nigeria": {
+    "data": {
+      "minPrice": 25000,
+      "maxPrice": 35000,
+      "averagePrice": 30000,
+      "historicalTrend": "Palm oil prices in Nigeria have been steadily increasing over the past quarter due to high demand and supply chain disruptions. However, recent imports have helped to stabilize prices, with a slight decline in recent weeks.",
+      "predictedPrice": 32000,
+      "confidence": 80
+    },
+    "timestamp": 1779658555446
+  },
+  "stockfish-1-piece-avg-500g-nigeria": {
+    "data": {
+      "minPrice": 800,
+      "maxPrice": 1500,
+      "averagePrice": 1100,
+      "historicalTrend": "The price of stockfish in Nigeria has been relatively stable over the past quarter, with a slight increase due to higher import costs. However, prices may fluctuate based on seasonal demand and supply chain disruptions.",
+      "predictedPrice": 1200,
+      "confidence": 80
+    },
+    "timestamp": 1779658555474
+  },
+  "seasoning-cubes-maggi-pack-of-50-nigeria": {
+    "data": {
+      "minPrice": 1200,
+      "maxPrice": 1800,
+      "averagePrice": 1500,
+      "historicalTrend": "The price of Seasoning Cubes (Maggi) in Nigeria has been relatively stable over the past quarter, with a slight increase due to inflation. However, there was a brief surge in prices during the festive season, which has since normalized.",
+      "predictedPrice": 1550,
+      "confidence": 80
+    },
+    "timestamp": 1779658555519
+  },
+  "table-salt-1kg-pack-nigeria": {
+    "data": {
+      "minPrice": 150,
+      "maxPrice": 300,
+      "averagePrice": 220,
+      "historicalTrend": "The price of table salt in Nigeria has been relatively stable over the past quarter, with minor fluctuations due to changes in supply and demand. However, there has been a slight increase in prices in recent weeks due to increased transportation costs.",
+      "predictedPrice": 240,
+      "confidence": 80
+    },
+    "timestamp": 1779658556042
+  },
+  "tomato-paste-tin-400g-tin-nigeria": {
+    "data": {
+      "minPrice": 250,
+      "maxPrice": 450,
+      "averagePrice": 350,
+      "historicalTrend": "The price of Tomato Paste has been relatively stable in the past quarter, with a slight increase due to seasonal demand. However, the recent influx of imported products has put downward pressure on prices, leading to a marginal decrease in the average price.",
+      "predictedPrice": 380,
+      "confidence": 80
+    },
+    "timestamp": 1779658556044
+  },
+  "vegetable-oil-5-litre-bottle-nigeria": {
+    "data": {
+      "minPrice": 4500,
+      "maxPrice": 6500,
+      "averagePrice": 5500,
+      "historicalTrend": "The price of vegetable oil in Nigeria has been steadily increasing over the past quarter due to global supply chain disruptions and local production challenges. Despite some fluctuations, the overall trend indicates a rise in prices, with some markets experiencing higher prices than others.",
+      "predictedPrice": 5800,
+      "confidence": 80
+    },
+    "timestamp": 1779658557695
+  }
+}

@@ -30,6 +30,24 @@ export function useProducts(query?: string, categoryId?: string, locationId?: st
 
         const data = (await response.json()) as ProductWithCategory[];
         setProducts(data || []);
+
+        // Fire-and-forget demand search events when filtering by location + query
+        // Per CLAUDE.md: never await demand logging in the critical path
+        if (locationId && data && data.length > 0 && query) {
+          data.slice(0, 5).forEach((product) => {
+            fetch('/api/demand', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                product_id: product.id,
+                location_id: locationId,
+                event_type: 'search',
+              }),
+            }).catch((err) =>
+              logger.debug('[useProducts] Demand log failed (non-critical)', { error: err?.message })
+            );
+          });
+        }
       } catch (err) {
         const normalised = normaliseError(err);
         setError(normalised);

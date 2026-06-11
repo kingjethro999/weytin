@@ -14,7 +14,7 @@ export default function DashboardLayout({
   const { isMobileNavOpen, setMobileNavOpen } = useUIStore();
 
   return (
-    <div className="flex min-h-screen bg-background text-foreground">
+    <div className="flex h-screen overflow-hidden bg-background text-foreground">
       <Sidebar />
       <MobileNav 
         isOpen={isMobileNavOpen} 

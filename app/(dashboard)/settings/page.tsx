@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ErrorState } from '@/components/ui/error-state';
 import { prisma } from '@/lib/prisma';
 import { verifyJWT } from '@/lib/auth/jwt';
+import { EditProfileClient } from '@/components/settings/EditProfileClient';
 
 export default async function SettingsPage() {
   const cookieStore = await cookies();
@@ -65,6 +66,21 @@ export default async function SettingsPage() {
         <h1 className="text-3xl font-semibold tracking-tight mt-1">Settings</h1>
         <p className="text-muted-foreground mt-1">Live account and activity data from the database.</p>
       </header>
+
+      {/* Editable Profile Card */}
+      <EditProfileClient
+        initialBusinessName={profile.businessName}
+        initialLocationId={profile.locationId}
+        initialLocation={profile.location
+          ? {
+              id: profile.location.id,
+              name: profile.location.name,
+              state: profile.location.state,
+              lga: profile.location.lga ?? null,
+            }
+          : null
+        }
+      />
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card className="bg-card border-border/70">

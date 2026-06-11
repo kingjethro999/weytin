@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { prisma } from '@/lib/prisma';
+import Link from 'next/link';
 
 interface PendingVendor {
   id: string;
@@ -163,8 +164,8 @@ export default async function AdminDashboardPage() {
                 No pending requests
               </div>
             )}
-            <Button variant="ghost" className="w-full text-xs text-muted-foreground" size="sm">
-              View All Requests <ArrowUpRight className="size-3 ml-2" />
+            <Button variant="ghost" className="w-full text-xs text-muted-foreground" size="sm" asChild>
+              <Link href="/admin/vendors">View All Requests <ArrowUpRight className="size-3 ml-2" /></Link>
             </Button>
           </CardContent>
         </Card>
@@ -204,8 +205,8 @@ export default async function AdminDashboardPage() {
                 No active flags
               </div>
             )}
-            <Button variant="ghost" className="w-full text-xs text-muted-foreground" size="sm">
-              Open Flag Console <ArrowUpRight className="size-3 ml-2" />
+            <Button variant="ghost" className="w-full text-xs text-muted-foreground" size="sm" asChild>
+              <Link href="/admin/flags">Open Flag Console <ArrowUpRight className="size-3 ml-2" /></Link>
             </Button>
           </CardContent>
         </Card>

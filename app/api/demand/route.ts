@@ -8,6 +8,14 @@ import { DemandType } from '@prisma/client';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    const { product_id, location_id, event_type } = body;
+
+    if (!product_id || !location_id || !event_type) {
+      return NextResponse.json(
+        { error: 'product_id, location_id and event_type are required' },
+        { status: 400 }
+      );
+    }
 
     // Check if user is authenticated to link demand events
     let userId: string | null = null;
@@ -21,9 +29,9 @@ export async function POST(req: NextRequest) {
 
     const data = await prisma.demandEvent.create({
       data: {
-        productId: body.product_id,
-        locationId: body.location_id,
-        eventType: body.event_type as DemandType,
+        productId: product_id,
+        locationId: location_id,
+        eventType: event_type as DemandType,
         userId,
       },
     });

@@ -2,9 +2,14 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { ProductDetail } from '@/components/product/ProductDetail';
+import { DemandLogger } from '@/components/product/DemandLogger';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import type { SupplyStatus } from '@/types/supply.types';
+import { cookies } from 'next/headers';
+import { verifyJWT } from '@/lib/auth/jwt';
+import { getValidatedPricePool, calculateMedianPrice } from '@/lib/price/calculate';
+import { getGroqMarketContext } from '@/lib/price/groqMarketData';
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -13,34 +18,83 @@ interface ProductPageProps {
 export default async function ProductPage({ params }: ProductPageProps) {
   const { id } = await params;
 
+  // Fetch user location if logged in
+  const cookieStore = await cookies();
+  const token = cookieStore.get('weytin_session_token')?.value;
+  let userLocationId = null;
+  let locationLabel = 'National';
+  
+  if (token) {
+    try {
+      const payload = await verifyJWT(token);
+      if (payload && payload.id) {
+        const profile = await prisma.profile.findUnique({
+          where: { id: payload.id },
+          select: { locationId: true, location: { select: { name: true, state: true } } },
+        });
+        if (profile?.locationId && profile.location) {
+          userLocationId = profile.locationId;
+          locationLabel = `${profile.location.name}, ${profile.location.state}`;
+        }
+      }
+    } catch (e) {
+      // Ignored
+    }
+  }
+
   // Fetch product with category
   const product = await prisma.product.findUnique({
     where: { id },
     include: { category: true },
   });
 
-  if (!product) {
+  if (!product || !product.approved) {
     notFound();
   }
 
-  // Fetch supply metrics
+  // Fetch supply metrics for current location (or national if none)
   const supplyData = await prisma.supplyEntry.findMany({
-    where: { productId: id },
+    where: { 
+      productId: id,
+      ...(userLocationId ? { locationId: userLocationId } : {})
+    },
     select: { price: true, quantity: true },
   });
 
-  const avgPrice = supplyData && supplyData.length > 0
-    ? supplyData.reduce((acc, curr) => acc + Number(curr.price), 0) / supplyData.length
-    : 0;
+  const priceRule = await prisma.priceRule.findFirst({
+    where: { 
+      productId: id,
+      ...(userLocationId ? { locationId: userLocationId } : {})
+    },
+    select: { minPrice: true, maxPrice: true },
+  });
+
+  let minPrice = priceRule ? Number(priceRule.minPrice) : undefined;
+  let maxPrice = priceRule ? Number(priceRule.maxPrice) : undefined;
+
+  let aiBaseline = null;
+  if (!priceRule || supplyData.length === 0) {
+    let locStr = 'Nigeria';
+    if (userLocationId) {
+      const loc = await prisma.location.findUnique({ where: { id: userLocationId } });
+      if (loc) locStr = `${loc.name}, ${loc.state}`;
+    }
+    aiBaseline = await getGroqMarketContext(product.name, product.unit || 'unit', locStr);
+    if (minPrice === undefined) minPrice = aiBaseline.minPrice;
+    if (maxPrice === undefined) maxPrice = aiBaseline.maxPrice;
+  }
+
+  // Run validation
+  const rawPrices = supplyData.map((e) => Number(e.price));
+  const { validPrices, discardedCount } = getValidatedPricePool(rawPrices, minPrice, maxPrice);
+
+  const medianPrice = validPrices.length > 0
+    ? calculateMedianPrice(validPrices)
+    : (aiBaseline ? aiBaseline.averagePrice : 0);
 
   const avgQuantity = supplyData && supplyData.length > 0
     ? supplyData.reduce((acc, curr) => acc + Number(curr.quantity || 0), 0) / supplyData.length
     : 0;
-
-  const priceRule = await prisma.priceRule.findFirst({
-    where: { productId: id },
-    select: { minPrice: true, maxPrice: true },
-  });
 
   const status: SupplyStatus =
     avgQuantity >= 100 ? 'high' :
@@ -49,21 +103,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
     'medium';
 
   let fairnessScore = 50;
-  if (priceRule && avgPrice > 0) {
-    const min = Number(priceRule.minPrice);
-    const max = Number(priceRule.maxPrice);
-    if (avgPrice < min) fairnessScore = 20;
-    else if (avgPrice > max) fairnessScore = 90;
+  if (minPrice !== undefined && maxPrice !== undefined && medianPrice > 0) {
+    if (medianPrice < minPrice) fairnessScore = 20;
+    else if (medianPrice > maxPrice) fairnessScore = 90;
     else fairnessScore = 55;
   }
 
   const metric = {
     product_id: id,
-    location_id: 'national',
+    location_id: userLocationId || 'national',
     status,
-    avg_price: avgPrice,
+    avg_price: medianPrice,
     entry_count: supplyData?.length || 0,
   };
+
   const detailProduct = {
     ...product,
     unit: product.unit ?? 'unit',
@@ -71,6 +124,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
     created_at: product.createdAt.toISOString(),
     description: undefined,
   };
+
+  const mappedAiBaseline = aiBaseline ? {
+    min_price: aiBaseline.minPrice,
+    max_price: aiBaseline.maxPrice,
+    average_price: aiBaseline.averagePrice,
+    historical_trend: aiBaseline.historicalTrend,
+    predicted_price: aiBaseline.predictedPrice,
+    confidence: aiBaseline.confidence,
+  } : null;
 
   return (
     <div className="max-w-7xl mx-auto space-y-6">
@@ -85,7 +147,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </header>
 
       <main>
-        <ProductDetail product={detailProduct} metric={metric} fairnessScore={fairnessScore} />
+        {/* Fire-and-forget demand view event — logs silently in background */}
+        <DemandLogger productId={id} locationId={userLocationId} />
+        <ProductDetail 
+          product={detailProduct} 
+          metric={metric} 
+          fairnessScore={fairnessScore} 
+          locationLabel={locationLabel}
+          aiBaseline={mappedAiBaseline}
+          discardedCount={discardedCount}
+        />
       </main>
 
       <footer className="pt-12 text-center">

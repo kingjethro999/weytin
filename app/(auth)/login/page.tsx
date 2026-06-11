@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
+import { Eye, EyeOff } from 'lucide-react';
 
 import { useRouter } from 'next/navigation';
 import { useAuthStore, UserRole } from '@/store/auth.store';
@@ -14,7 +15,8 @@ import { useAuthStore, UserRole } from '@/store/auth.store';
 export default function LoginPage() {
   const router = useRouter();
   const setUser = useAuthStore((state) => state.setUser);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,30 +63,27 @@ export default function LoginPage() {
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-between">
             <CardTitle className="text-2xl font-bold tracking-tight">Login</CardTitle>
-            <div className="px-2 py-1 text-[10px] font-mono uppercase tracking-widest border border-supply/30 text-supply bg-supply/5 rounded">
-              v1.0.0-PROD
-            </div>
           </div>
           <CardDescription className="text-muted-foreground">
-            Access the Weytin Market Intelligence Platform
+            Access the Weytin Market Monitor
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email" className="data-label">Email Address</Label>
+              <Label htmlFor="email">Email Address</Label>
               <Input 
                 id="email" 
                 name="email"
                 type="email" 
-                placeholder="ops@weytin.com" 
+                placeholder="yourname@email.com" 
                 required 
                 className="bg-background/50"
               />
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <Label htmlFor="password" className="data-label">Password</Label>
+                <Label htmlFor="password">Password</Label>
                 <Link 
                   href="/forgot-password" 
                   className="text-xs text-muted-foreground hover:text-foreground transition-colors"
@@ -92,16 +91,26 @@ export default function LoginPage() {
                   Forgot password?
                 </Link>
               </div>
-              <Input 
-                id="password" 
-                name="password"
-                type="password" 
-                required 
-                className="bg-background/50"
-              />
+              <div className="relative">
+                <Input 
+                  id="password" 
+                  name="password"
+                  type={showPassword ? 'text' : 'password'} 
+                  required 
+                  className="bg-background/50 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  className="absolute right-3 top-2.5 text-muted-foreground hover:text-foreground"
+                >
+                  {showPassword ? <EyeOff className="size-4" aria-hidden="true" /> : <Eye className="size-4" aria-hidden="true" />}
+                </button>
+              </div>
             </div>
             <Button type="submit" className="w-full mt-2" disabled={isLoading}>
-              {isLoading ? 'Authenticating...' : 'Sign In to Network'}
+              {isLoading ? 'Authenticating...' : 'Sign In'}
             </Button>
           </form>
         </CardContent>
@@ -112,20 +121,20 @@ export default function LoginPage() {
               href="/signup" 
               className="font-medium text-foreground hover:underline underline-offset-4"
             >
-              Request Network Access
+              Request Access
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4 w-full">
             <div className="p-3 border border-border/50 rounded-md bg-background/30">
-              <p className="data-label mb-1">Network Status</p>
+              <p className="text-xs font-semibold text-muted-foreground mb-1">System Status</p>
               <div className="flex items-center gap-2">
                 <div className="size-2 rounded-full bg-supply animate-pulse" />
                 <span className="text-[10px] font-mono">ONLINE</span>
               </div>
             </div>
             <div className="p-3 border border-border/50 rounded-md bg-background/30">
-              <p className="data-label mb-1">Active Nodes</p>
-              <p className="text-xs font-mono font-medium">-- / -- (Verified)</p>
+              <p className="text-xs font-semibold text-muted-foreground mb-1">Active Locations</p>
+              <p className="text-xs font-mono font-medium">-- / --</p>
             </div>
           </div>
         </CardFooter>

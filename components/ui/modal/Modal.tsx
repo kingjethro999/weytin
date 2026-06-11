@@ -25,13 +25,16 @@ export function Modal({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = 'unset';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
     }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -53,8 +56,14 @@ export function Modal({
             {title && <h2 className="text-lg font-semibold leading-none tracking-tight">{title}</h2>}
             {description && <p className="text-sm text-muted-foreground mt-1.5">{description}</p>}
           </div>
-          <Button variant="ghost" size="icon" className="size-8" onClick={onClose}>
-            <X className="size-4" />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="size-8" 
+            onClick={onClose}
+            aria-label="Close modal"
+          >
+            <X className="size-4" aria-hidden="true" />
           </Button>
         </div>
         

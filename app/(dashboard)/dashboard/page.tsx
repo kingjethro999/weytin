@@ -14,6 +14,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
+import { calculateAveragePrice, getValidatedPricePool } from '@/lib/price/calculate';
 
 interface RecentSupplyEntry {
   id: string;
@@ -31,11 +32,14 @@ interface ActiveLocation {
 }
 
 export default async function DashboardPage() {
-  const [supplyCount, priceData, vendorCount, flagCount, highDemandLocations, recentEntries] = await Promise.all([
+  const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+
+  const [supplyCount, priceData, vendorCount, flagCount, demandCount, highDemandLocations, recentEntries] = await Promise.all([
     prisma.supplyEntry.count(),
     prisma.supplyEntry.findMany({ select: { price: true } }),
     prisma.profile.count({ where: { role: 'vendor' } }),
     prisma.priceFlag.count({ where: { resolved: false } }),
+    prisma.demandEvent.count({ where: { createdAt: { gte: sevenDaysAgo } } }),
     prisma.location.findMany({ select: { id: true, name: true, state: true }, take: 4 }),
     prisma.supplyEntry.findMany({
       orderBy: { submittedAt: 'desc' },
@@ -51,9 +55,10 @@ export default async function DashboardPage() {
     }),
   ]);
 
-  const avgPrice = priceData.length > 0
-    ? priceData.reduce((acc, curr) => acc + Number(curr.price), 0) / priceData.length
-    : 0;
+  // Use the validated price pool (trimmed of outliers) before computing the average
+  const rawPrices = priceData.map((e) => Number(e.price));
+  const { validPrices } = getValidatedPricePool(rawPrices);
+  const avgPrice = validPrices.length > 0 ? calculateAveragePrice(validPrices) : 0;
   const recentSupplyEntries: RecentSupplyEntry[] = recentEntries.map((entry) => ({
     id: entry.id,
     price: Number(entry.price),
@@ -67,10 +72,10 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       <header className="flex flex-col gap-4 md:flex-row md:justify-between md:items-end">
         <div>
-          <p className="text-[10px] font-data uppercase tracking-[0.2em] text-muted-foreground">Operations Dashboard</p>
+          <p className="text-[10px] font-data uppercase tracking-[0.2em] text-muted-foreground">Market Dashboard</p>
           <h1 className="text-3xl font-semibold tracking-tight mt-1">System Overview</h1>
           <p className="text-muted-foreground mt-1">
-            Aggregated market data and supply chain health indicators.
+            A simple look at food and product availability and prices.
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -89,28 +94,28 @@ export default async function DashboardPage() {
         <MetricCard 
           title="Total Supply Items" 
           value={supplyCount || 0} 
-          trendLabel="Across all active nodes"
+          trendLabel="Across all active locations"
           status="info"
           icon={Package}
         />
         <MetricCard 
-          title="Avg Price Index" 
+          title="Validated Avg Price" 
           value={`₦${Math.round(avgPrice).toLocaleString()}`} 
-          trendLabel="Current market average"
+          trendLabel="Filtered outliers excluded"
           status="warning"
           icon={TrendingUp}
         />
         <MetricCard 
           title="Active Vendors" 
           value={vendorCount || 0} 
-          trendLabel="Verified agents"
+          trendLabel="Registered businesses"
           status="success"
           icon={Users}
         />
         <MetricCard 
           title="Price Flags" 
           value={flagCount || 0} 
-          trendLabel="Requires attention"
+          trendLabel={`${demandCount} views this week`}
           status="error"
           icon={AlertTriangle}
         />
@@ -181,7 +186,7 @@ export default async function DashboardPage() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs font-data font-semibold">NODE</p>
+                    <p className="text-xs font-semibold">LOCATION</p>
                     <div className="flex items-center text-[10px] text-supply">
                       <ArrowUpRight className="size-2.5 mr-0.5" />
                       ACTIVE

@@ -131,3 +131,10 @@
     @apply font-data text-sm font-medium;
   }
 }
+
+/* Accessibility Focus Indicators (WCAG AA Compliance) */
+*:focus-visible {
+  outline: 3px solid var(--ring) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15) !important;
+}
