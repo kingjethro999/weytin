@@ -40,63 +40,53 @@ async function main() {
   console.log('🌱 Seeding categories and products...');
 
   // ── 1. Categories ────────────────────────────────────────────────────────────
-  const categories = await Promise.all([
-    prisma.category.upsert({
-      where: { slug: 'food-grains' },
+  const categoryData = [
+    { name: 'Food & Grains', slug: 'food-grains' },
+    { name: 'Cooking Essentials', slug: 'cooking-essentials' },
+    { name: 'Energy & Fuel', slug: 'energy-fuel' },
+    { name: 'Building Materials', slug: 'building-materials' },
+    { name: 'Household Goods', slug: 'household-goods' },
+    { name: 'Livestock & Poultry', slug: 'livestock-poultry' },
+    { name: 'Beverages', slug: 'beverages' },
+    { name: 'Vegetables & Produce', slug: 'vegetables-produce' },
+  ];
+
+  const categories = [];
+  for (const c of categoryData) {
+    const category = await prisma.category.upsert({
+      where: { slug: c.slug },
       update: {},
-      create: { name: 'Food & Grains', slug: 'food-grains' },
-    }),
-    prisma.category.upsert({
-      where: { slug: 'cooking-essentials' },
-      update: {},
-      create: { name: 'Cooking Essentials', slug: 'cooking-essentials' },
-    }),
-    prisma.category.upsert({
-      where: { slug: 'energy-fuel' },
-      update: {},
-      create: { name: 'Energy & Fuel', slug: 'energy-fuel' },
-    }),
-    prisma.category.upsert({
-      where: { slug: 'building-materials' },
-      update: {},
-      create: { name: 'Building Materials', slug: 'building-materials' },
-    }),
-    prisma.category.upsert({
-      where: { slug: 'household-goods' },
-      update: {},
-      create: { name: 'Household Goods', slug: 'household-goods' },
-    }),
-    prisma.category.upsert({
-      where: { slug: 'livestock-poultry' },
-      update: {},
-      create: { name: 'Livestock & Poultry', slug: 'livestock-poultry' },
-    }),
-    prisma.category.upsert({
-      where: { slug: 'beverages' },
-      update: {},
-      create: { name: 'Beverages', slug: 'beverages' },
-    }),
-    prisma.category.upsert({
-      where: { slug: 'vegetables-produce' },
-      update: {},
-      create: { name: 'Vegetables & Produce', slug: 'vegetables-produce' },
-    }),
-  ]);
+      create: c,
+    });
+    categories.push(category);
+  }
 
   // Extra categories for new products
+  const extraCategoryData = [
+    { name: 'Snacks & Confectionery', slug: 'snacks-confectionery' },
+    { name: 'Personal Care', slug: 'personal-care' },
+    { name: 'Health & Pharmacy', slug: 'health-pharmacy' },
+    { name: 'Electronics & Accessories', slug: 'electronics-accessories' },
+    { name: 'Stationery & Office', slug: 'stationery-office' },
+  ];
+
+  const extraCategories = [];
+  for (const c of extraCategoryData) {
+    const category = await prisma.category.upsert({
+      where: { slug: c.slug },
+      update: {},
+      create: c,
+    });
+    extraCategories.push(category);
+  }
+
   const [
     snacks,
     personalCare,
     healthPharmacy,
     electronicAcc,
     stationery,
-  ] = await Promise.all([
-    prisma.category.upsert({ where: { slug: 'snacks-confectionery' }, update: {}, create: { name: 'Snacks & Confectionery', slug: 'snacks-confectionery' } }),
-    prisma.category.upsert({ where: { slug: 'personal-care' }, update: {}, create: { name: 'Personal Care', slug: 'personal-care' } }),
-    prisma.category.upsert({ where: { slug: 'health-pharmacy' }, update: {}, create: { name: 'Health & Pharmacy', slug: 'health-pharmacy' } }),
-    prisma.category.upsert({ where: { slug: 'electronics-accessories' }, update: {}, create: { name: 'Electronics & Accessories', slug: 'electronics-accessories' } }),
-    prisma.category.upsert({ where: { slug: 'stationery-office' }, update: {}, create: { name: 'Stationery & Office', slug: 'stationery-office' } }),
-  ]);
+  ] = extraCategories;
 
   const [
     foodGrains,
